@@ -1,0 +1,15 @@
+<p *ngIf="menu; else noMenu">Le menu sélectionné est le : {{ menu.name }} </p>
+<ng-template #noMenu>
+Sélectionnez votre menu.
+</ng-template>
+
+<div *ngIf="menu; else noMenu">
+    <p>Le menu sélectionné est le : {{ menu.name }} </p>
+    <div>
+        <label for="menu.price">Le prix de notre menu est de : </label>
+        <input id="menu-price" [(ngModel)]="menu.price" placeholder="prix">
+    </div>
+    <button (click)="update()">Mettre à jour</button>
+    <button (click)="updatePrice(menu.price)">Panier</button>
+    
+</div>

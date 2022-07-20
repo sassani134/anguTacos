@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <h1>{{title}}</h1>
+        <div *ngIf="basketMenuList.length > 0 ">
+            <p>Votre panier contient : {{basketMenuList.length}} élément(s) </p>
+            <table class="table table-striped table-bordered">
+                <tr *ngFor="let m of basketMenuList; let i = index">
+                    <td>{{m.name}}</td>
+                    <td>{{m.price | currency:'EUR' | droiteGauche}}</td>
+                    <td><button type="button" class="btn" (click)="deleteElement(i)"><i i-bs
+                    name="trash" theme="false"></i></button></td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>{{basketAmount | currency:'EUR' | droiteGauche}}</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<h1>Liste des menus </h1>
+
+<label for="name">Menu : </label>
+
+<h2> Autres menus</h2>
+<table class="table table-striped table-bordered">
+  <tr *ngFor="let m of menuList" (click)="onSelect(m)">
+    <td>{{m.name | uppercase}}</td>
+    <td>{{m.price | currency:'EUR' | droiteGauche}}</td>
+    <button class="btn btn-primary" (click)="addBasket(m)">Ajouter au panier</button>
+  </tr>
+</table>
+
+<app-menu-detail 
+  [menu]="selectedMenu" (menuChanged)="update($event)"
+  (priceStocked) = "updatePanier($event)"
+></app-menu-detail>
